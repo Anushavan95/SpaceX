@@ -1,0 +1,7 @@
+enum Types {
+  SET_COMPANIES = 'SET_COMPANIES',
+  UPDATE_BOXES = 'UPDATE_BOXES',
+  UPDATE_QUERY = 'UPDATE_QUERY',
+}
+
+export default Types

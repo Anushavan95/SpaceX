@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Provider } from 'react-redux'
+import './App.css'
+import store from './store'
+import Routes from './routes'
+import { Router } from 'react-router-dom'
+import browserHistory from './browserHistory'
+import Header from './components/Header'
+import getCompanies from './store/companies/action/getCompanies'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App: React.FunctionComponent = () => (
+  <Provider store={store}>
+    <Header />
+    <Router history={browserHistory}>
+      <Routes />
+    </Router>
+  </Provider>
+)
 
-export default App;
+export default App
+
+store.dispatch(getCompanies())

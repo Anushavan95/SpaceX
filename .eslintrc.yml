@@ -1,0 +1,43 @@
+
+# Configuration: https://eslint.org/docs/user-guide/configuring
+# Using with Prettier: https://prettier.io/docs/en/integrating-with-linters.html#recommended-configuration
+
+extends:
+  - 'plugin:import/errors'
+  - 'plugin:import/typescript'
+  - 'plugin:jsx-a11y/recommended'
+  - 'plugin:react/recommended' # Uses the recommended rules from @eslint-plugin-react
+  - 'plugin:@typescript-eslint/recommended' # Uses the recommended rules from the @typescript-eslint/eslint-plugin
+  - 'prettier' # Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
+  - 'plugin:prettier/recommended' # Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
+
+parser: '@typescript-eslint/parser' # Specifies the ESLint parser. Use TypeScriptCompiler because it has a type-checker, babel-eslint does not
+
+plugins:
+  - react
+  - import
+  - jsx-a11y
+  - '@typescript-eslint'
+  - prettier
+
+rules:
+  # ESLint rules. Can be used to overwrite rules specified from the extended configs
+  'react/prop-types': 0 # aren't really useful in Typescript
+  no-console: 1 # 1 is Warning
+  '@typescript-eslint/no-explicit-any': 0
+
+parserOptions:
+  ecmaVersion: 2018 # Allows for the parsing of modern ECMAScript features
+  sourceType: module # Allows for using ES6 Modules
+  ecmaFeatures:
+    jsx: true # Allows for the parsing of JSX
+
+env:
+  jest: true # support Jest global variables.
+  es6: true # not choke on things like async/await
+  browser: true # not choke on browser global variables (document, window ect.)
+  node: true # support Node.js global variables and Node.js scoping.
+
+settings:
+  react:
+    version: detect # tells eslint-plugin-react to detect React version to use from package.json
