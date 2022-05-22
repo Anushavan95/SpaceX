@@ -55,6 +55,4 @@ Another shipment `6.2,5.9,4,6.9,4.4,1.7,9.5` would require 4 cargo bays.
 * Best practices
 * Clean and understandable code
 
-## Other
 
-Author here, I appreciate any free time you spend on this. I put the assignment together around 3 areas: layout (HTML, CSS), library/framework knowledge (React, Vue.js, Angular) and your thinking in code. My advice is to first start with these areas and continue from there.
