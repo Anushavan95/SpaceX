@@ -1,0 +1,220 @@
+iframe {
+  display: none;
+}
+#root {
+  background-color: #1b1d22 !important;
+}
+
+.companies-list a.active {
+  background: linear-gradient(90deg, rgba(45, 48, 56, 0) 22.92%, #2d3038 100%);
+  max-width: 260px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: white;
+  display: block;
+}
+.logo-header {
+  max-width: 360px;
+  width: 100%;
+  display: flex;
+}
+@font-face {
+  font-family: Roboto;
+  src: url('./assets/fonts/Roboto-Regular.ttf');
+}
+.companies-list {
+  a {
+    text-decoration: none;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #979797;
+  }
+}
+
+.search-block {
+  position: relative;
+  padding-left: 5px;
+
+  .search {
+    top: 15px;
+    position: absolute;
+    left: 15px;
+  }
+  .search-input {
+    height: 50px;
+  }
+}
+
+.details-company {
+  background: linear-gradient(124.01deg, #2d3038 0%, rgba(45, 48, 56, 0) 100%);
+  border-radius: 30px !important;
+  .company-name {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 74px;
+    margin: 0;
+    color: #ffffff;
+  }
+  .company-email,
+  .cargo-boxes {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #979797;
+  }
+  .number-company {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 44px;
+    margin: 30px 0 0 0;
+
+    color: #979797;
+  }
+  .number-boxes {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 66px;
+    margin: 0;
+
+    color: #ffffff;
+  }
+}
+
+.title-list {
+  margin: 0;
+  font-size: 20px;
+  line-height: 38px;
+  text-transform: uppercase;
+
+  text-transform: uppercase;
+
+  color: #979797;
+}
+
+// burger
+
+.burger {
+  width: 30px;
+  height: 22px;
+  right: 0;
+  position: absolute;
+  top: 34px;
+  display: none;
+  .line {
+    width: 30px;
+    background: #ffffff;
+    position: absolute;
+    height: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    &::before {
+      content: '';
+      width: 30px;
+      background: #ffffff;
+      position: absolute;
+      height: 2px;
+      top: -10px;
+      transition: 1s all ease-in-out;
+    }
+    &::after {
+      content: '';
+      width: 30px;
+      background: #ffffff;
+      position: absolute;
+      height: 2px;
+      top: 10px;
+      transition: 1s all ease-in-out;
+    }
+  }
+}
+.openMenu {
+  .line {
+    background: transparent;
+    transition: 1s all ease-in-out;
+    &::before {
+      top: 5px;
+
+      transform: rotate(35deg);
+    }
+    &::after {
+      top: 5px;
+
+      transform: rotate(-35deg);
+    }
+  }
+}
+
+.showListMenu {
+  transition: 1s all ease-in;
+  transform: translate(0, -60px) !important;
+  z-index: 5;
+  max-width: 80% !important;
+  overflow: hidden;
+  background-color: #1b1d22;
+  height: 100vh;
+}
+
+@media screen and (max-width: 850px) {
+  .burger {
+    display: block;
+  }
+  .header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    position: relative;
+  }
+  .list-companies {
+    position: absolute;
+    transition: 1s all ease-in;
+
+    left: 0;
+    transform: translate(-100%, -60px);
+  }
+  #root {
+    padding: 20px;
+  }
+  .search-block {
+    width: 100%;
+  }
+  .logo-header {
+    padding: 20px 0px 30px 0px !important;
+  }
+  .search-block {
+    padding: 0;
+  }
+  .details-company {
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .list-companies {
+    padding: 40px 40px 40px 20px !important;
+  }
+  .details-company {
+    max-width: 340px;
+    h1 {
+      font-size: 45px !important;
+    }
+  }
+  .showListMenu {
+    max-width: 360px !important;
+  }
+}

@@ -1,23 +1,27 @@
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import React from 'react'
 import styled from 'styled-components'
 import colors from '../assets/colors'
 import { useSelector } from 'react-redux'
-import { selectCompanies, selectQueries } from '../store/companies/selectors'
+import { selectBurgerMenu, selectCompanies, selectQueries } from '../store/companies/selectors'
 
 const CompaniesList: React.FunctionComponent = () => {
   const companies = useSelector(selectCompanies)
+  const showList = useSelector(selectBurgerMenu)
   const query = useSelector(selectQueries)
   return (
-    <Container>
-      {companies
-        .filter(company => company.name.toLowerCase().includes(query.toLowerCase()))
-        .map(({ id, name }) => (
-          <li key={id}>
-            <StyledLink to={`/companies/${id}`}>{name}</StyledLink>
-          </li>
-        ))}
-    </Container>
+    <>
+      <Container className={`list-companies ${showList ? 'showListMenu' : ''}`}>
+        <h3 className="title-list">Shipment List</h3>
+        {companies
+          .filter(company => company.name.toLowerCase().includes(query.toLowerCase()))
+          .map(({ id, name }) => (
+            <li key={id} className="companies-list">
+              <NavLink to={`/companies/${id}`}>{name}</NavLink>
+            </li>
+          ))}
+      </Container>
+    </>
   )
 }
 
@@ -33,15 +37,8 @@ const Container = styled.ul`
   height: 100%;
   flex-direction: column;
   overflow: auto;
-`
-
-const StyledLink = styled(Link)`
-  display: block;
-  color: ${colors.black};
-  padding: 8px 16px;
-  text-decoration: none;
-  &:hover:not {
-    background-color: ${colors.grey};
-    color: ${colors.white};
-  }
+  padding: 0px 40px 40px 40px;
+  grid-gap: 12px;
+  max-width: 360px;
+  width: 100%;
 `

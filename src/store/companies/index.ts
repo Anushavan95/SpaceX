@@ -8,6 +8,8 @@ export default (state = initialState, action: Actions): State => {
       return { ...state, data: action.companies }
     case Types.UPDATE_QUERY:
       return { ...state, query: action.query }
+    case Types.BURGER_MENU:
+      return { ...state, burgerMenu: !state.burgerMenu }
     case Types.UPDATE_BOXES:
       return {
         ...state,
@@ -21,9 +23,11 @@ export default (state = initialState, action: Actions): State => {
 export const initialState: State = {
   data: [],
   query: '',
+  burgerMenu: false,
 }
 
 export interface State {
   data: Company[]
   query: string
+  burgerMenu: boolean
 }

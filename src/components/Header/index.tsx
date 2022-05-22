@@ -2,15 +2,13 @@ import React from 'react'
 import Title from './Title'
 import Search from './Search'
 import styled from 'styled-components'
-import ActionButtons from './ActionButtons'
 import colors from '../../assets/colors'
 
 const Header: React.FunctionComponent = () => {
   return (
-    <Container>
+    <Container className="header">
       <Title />
       <Search />
-      <ActionButtons />
     </Container>
   )
 }

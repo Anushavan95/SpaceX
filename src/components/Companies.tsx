@@ -5,7 +5,7 @@ import React from 'react'
 
 const Companies: React.FunctionComponent = () => {
   return (
-    <Container>
+    <Container className="companies-blocks">
       <CompaniesList />
       <CompaniesDetails />
     </Container>

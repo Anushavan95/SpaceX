@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { selectCompanyById } from '../store/companies/selectors'
 import { calculateNumberOfCargoBays } from '../utils/calculations'
 import { Actions, createUpdateBoxesAction } from '../store/companies/action/creators'
-
+import colors from '../assets/colors'
 interface ParamType {
   id: string
 }
@@ -19,15 +19,19 @@ const CompaniesDetails: React.FunctionComponent = () => {
     [dispatch, id]
   )
   return (
-    <Container>
+    <Container className="details-company">
       {company ? (
         <>
-          <div>name: {company.name}</div>
-          <div>email: {company.email}</div>
+          <h1 className="company-name"> {company.name}</h1>
+          <span className="company-email">{company.email}</span>
           <div>
-            boxes: <input value={company.boxes || ''} onChange={onChangeBoxesValue} />
+            <p className="cargo-boxes">CARGO BOXES</p>
+            <TextInput value={company.boxes || ''} onChange={onChangeBoxesValue} />
           </div>
-          <div>Number of reqired cargos bays: {calculateNumberOfCargoBays(company.boxes)}</div>
+          <div>
+            <p className="number-company"> Number of required cargo bays</p>
+            <p className="number-boxes">{calculateNumberOfCargoBays(company.boxes)}</p>
+          </div>
         </>
       ) : (
         <div>Please select a company</div>
@@ -43,4 +47,18 @@ const Container = styled.div`
   flex: 3;
   flex-direction: column;
   padding: 30px;
+  align-items: flex-start;
+  border-radius: 30px;
+`
+
+const TextInput = styled.input`
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid ${colors.lightGrey};
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: ${colors.white};
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 15px 15px;
 `

@@ -1,9 +1,9 @@
 const colors = {
-  milk: '#f1f1f1',
+  milk: '#1b1d22x',
   black: '#000',
   white: '#fff',
   grey: '#555',
-  pink: '#d1b8e0',
+  pink: '#1b1d22',
   lightGrey: '#ccc',
   darkPink: '#bf80ff',
 }
